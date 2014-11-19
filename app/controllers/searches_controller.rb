@@ -17,6 +17,5 @@ class SearchesController < ApplicationController
     @tweets = status_array.map do |status|
       status[:text]
     end
-    binding.pry
   end
 end

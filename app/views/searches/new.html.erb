@@ -1,6 +1,7 @@
 <h1>Welcome to Swell</h1>
 
-<form action="/searches" method="post">
+<form action="/searches/show" method="get">
+	<%= token_tag %>
 	<input type="text" name="query">
 	<input type="submit">
 </form>

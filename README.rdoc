@@ -1,1 +1,1 @@
-Swell is an application that allows social media users to gauge the sentiment of subjects on twitter.
+Swell is a website for curious social media browsers who want to take the pulse of the internet. It let’s them know whether Twitter users are feeling positively or negatively about any hashtag—and who is actually influencing the conversation.  Unlike Twitter, users get a quick visual interface that let’s them know what people are thinking—right now, or over time. 

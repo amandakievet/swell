@@ -26,8 +26,8 @@ class SearchesController < ApplicationController
     end
 
     result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=#{@query}&count=100" )
-    jones = @query.sub!(/%23/, "\#")
-    todd = @query.sub!(/%20/, "\ ")
+    revert-tagged = @query.sub!(/%23/, "\#")
+    revert-spaced = @query.sub!(/%20/, "\ ")
     status_array = result[:statuses]
     @tweets = []
 

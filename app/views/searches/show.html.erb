@@ -1,6 +1,15 @@
 <h1>Here are your search results</h1>
-<div id="meter-container">
-	<div it="meter"></div>
+<div id="content">
+	<div id="thermometer">
+		<div class="track">
+			<div class="goal">
+				<div class="amount">200</div>
+			</div>
+			<div class="progress">
+				<div class="amount">  </div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <ul>
@@ -8,3 +17,9 @@
 	<li><%= tweet[:text] %> <strong><%= tweet[:score] %></strong></li>
 	<% end %>
 </ul>
+
+<script>
+	$(document).ready(function(){
+		thermometer();
+	});
+</script>

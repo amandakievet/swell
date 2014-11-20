@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 function thermometer(goalAmount, progressAmount, animate) {
 	"use strict";
 
@@ -29,4 +26,4 @@ function thermometer(goalAmount, progressAmount, animate) {
 		$progress.find(".amount").fadeIn(500);
 	}
 }
->>>>>>> temp-meter
+

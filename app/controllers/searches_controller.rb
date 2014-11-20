@@ -8,7 +8,9 @@ class SearchesController < ApplicationController
     Sentimental.threshold = 0.1
     analyzer = Sentimental.new
     query = params[:query]
-    query = query.gsub!(/ /, "\%20")
+    tagged = query.gsub!(/#/, "\%23")
+    spaced = query.gsub!(/ /, "\%20")
+    binding.pry
     consumer_key = ENV['CONSUMERKEY']
     consumer_secret = ENV['CONSUMERSECRET']
     access_token = ENV['ACCESSTOKEN']

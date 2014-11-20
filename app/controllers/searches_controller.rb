@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
 
   def show
     Sentimental.load_defaults
-    Sentimental.threshold = 0.1
+    Sentimental.threshold = 0.9
     analyzer = Sentimental.new
     query = params[:query]
 
@@ -17,8 +17,16 @@ class SearchesController < ApplicationController
     end
     result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{query}&count=100&result_type=popular" )
     status_array = result[:statuses]
-    @tweets = status_array.map do |status|
-      analyzer.get_score status[:text]
+
+    @tweets = []
+
+    @tweet_bodies = status_array.map do |status|
+      score = analyzer.get_score status[:text]
+      tweet = {
+        :text  =>  status[:text],
+        :score => score
+      }
+      @tweets<<tweet
     end
 
 

@@ -28,26 +28,8 @@ class SearchesController < ApplicationController
       }
       @tweets<<tweet
     end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   end
 end
 
 
 
-##analyzer.get_score ''

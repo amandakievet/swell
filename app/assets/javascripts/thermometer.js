@@ -15,7 +15,7 @@ function thermometer(goalAmount, progressAmount, animate) {
 	$progress.find(".amount").hide();
 	if (animate !== false) {
 		$progress.animate({
-			"height": percentageAmount + "%"
+			"width": percentageAmount + "%"
 		}, 1200, function(){
 			$(this).find(".amount").fadeIn(500);
 		});

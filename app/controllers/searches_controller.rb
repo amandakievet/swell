@@ -10,8 +10,8 @@ class SearchesController < ApplicationController
     analyzer = Sentimental.new
 
     @query = params[:query]
-    tagged = @query.gsub!(/#/, "\%23")
-    spaced = @query.gsub!(/ /, "\%20")
+    tagged = @query.sub!(/#/, "\%23")
+    spaced = @query.sub!(/ /, "\%20")
 
     consumer_key = ENV['CONSUMERKEY']
     consumer_secret = ENV['CONSUMERSECRET']
@@ -25,9 +25,9 @@ class SearchesController < ApplicationController
       config.access_token_secret = access_token_secret
     end
 
-
     result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=#{@query}&count=100" )
-
+    revert-tagged = @query.sub!(/%23/, "\#")
+    revert-spaced = @query.sub!(/%20/, "\ ")
     status_array = result[:statuses]
     @tweets = []
 

@@ -7,7 +7,7 @@ function thermometer(goalAmount, progressAmount, animate) {
 			percentageAmount;
 
 	goalAmount = goalAmount || parseFloat($goal.text()),
-	progressAMount = progressAmount || parseFloat($progress.text()),
+	progressAmount = progressAmount || parseFloat($progress.text()),
 	percentageAmount = Math.min( Math.round(progressAmount / goalAmount * 1000)/10, 100);
 	$goal.find(".amount").text(goalAmount);
 	$progress.find(".amount").text(progressAmount);

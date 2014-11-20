@@ -20,8 +20,8 @@ class SearchesController < ApplicationController
       config.access_token        = access_token
       config.access_token_secret = access_token_secret
     end
-binding.pry
-    result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{query}&count=100" )
+
+    result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=#{query}&count=100" )
     status_array = result[:statuses]
     @tweets = []
 

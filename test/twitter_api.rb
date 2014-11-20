@@ -69,9 +69,37 @@ def search(hashtag, tweets_text, tweets)
 	
 end
 
+Sentimental.load_defaults
+analyzer = Sentimental.new
 
 
- def show
+# Here i'm creating an array of hashes, and within each hash, is it's text and score. This way I can perform descriptive statistics on the array of scores.
+@tweets = []
+tweets_text.each_with_index do |tweet, i|
+	score = analyzer.get_score(tweet)
+	text = tweet
+	index = i
+	tweet = {
+		:score => score,
+		:id => index,
+		:text => text
+		}	
+	@tweets << tweet
+end
+
+# Here I want to create an array of scores so I can get - mean, std deviation and variance. This should tell us, disagreement within the sample, mean(average sentiment)
+
+array_of_scores = []
+@tweets.each do |tweet|
+	array_of_scores << tweet[:score]
+end
+
+
+	
+
+
+
+def show
     Sentimental.load_defaults
     Sentimental.threshold = 0.1
     analyzer = Sentimental.new
@@ -101,3 +129,5 @@ end
    end
     @score = scores.inject(0.0){ |sum, el| sum + el } / scores.size
 end
+
+

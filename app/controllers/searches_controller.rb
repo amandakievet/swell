@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     Sentimental.threshold = 0.1
     analyzer = Sentimental.new
     query = params[:query]
-
+    query = query.gsub!(/ /, "\%20")
     consumer_key = ENV['CONSUMERKEY']
     consumer_secret = ENV['CONSUMERSECRET']
     access_token = ENV['ACCESSTOKEN']
@@ -20,10 +20,9 @@ class SearchesController < ApplicationController
       config.access_token        = access_token
       config.access_token_secret = access_token_secret
     end
-
+binding.pry
     result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{query}&count=100" )
     status_array = result[:statuses]
-
     @tweets = []
 
     @tweet_bodies = status_array.map do |status|

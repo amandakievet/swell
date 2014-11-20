@@ -1,0 +1,15 @@
+div.container {
+	@include outer-container;
+}
+
+div.title {
+	@include span-columns(4);
+}
+
+div.form {
+	@include span-columns(6);
+}
+
+body{
+	background-color: $primarycolor;
+}

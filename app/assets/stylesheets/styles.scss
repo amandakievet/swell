@@ -1,0 +1,18 @@
+body{
+	background-color: $primarycolor;
+	font-family: $font-family;
+	font-weight: 400;
+}
+
+.container {
+	@include outer-container;
+}
+
+.primary {
+	@include span-columns(8);
+}
+
+.secondary {
+	@include span-columns(4);
+}
+

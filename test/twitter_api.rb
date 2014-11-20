@@ -69,9 +69,28 @@ def search(hashtag, tweets_text, tweets)
 	
 end
 
+Sentimental.load_defaults
+analyzer = Sentimental.new
 
 
- def show
+@tweets = []
+tweets_text.each_with_index do |tweet, i|
+	score = analyzer.get_score(tweet)
+	text = tweet
+	index = i
+	tweet = {
+		:score => score,
+		:id => index,
+		:text => text
+		}	
+	@tweets << tweet
+end
+
+	
+
+
+
+def show
     Sentimental.load_defaults
     Sentimental.threshold = 0.1
     analyzer = Sentimental.new
@@ -101,3 +120,5 @@ end
    end
     @score = scores.inject(0.0){ |sum, el| sum + el } / scores.size
 end
+
+

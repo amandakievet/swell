@@ -1,6 +1,14 @@
 <h1>Here are your search results</h1>
-<div id="meter-container">
-	<div it="meter"></div>
+<div id="content">
+	<div id="thermometer">
+		<div class="track">
+			<div class="goal">
+				<div class="amount"> 100 </div>
+			</div>
+			<div class="progress"> <%=@score%> </div>
+		</div>
+	</div>
+</div>
 </div>
 
 <ul>
@@ -9,4 +17,3 @@
 	<% end %>
 </ul>
 
-<%=@score%>

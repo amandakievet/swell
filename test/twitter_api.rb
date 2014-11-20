@@ -1,5 +1,8 @@
 require 'twitter'
 require 'sentimental'
+require 'indico'
+require 'descriptive-statistics'
+
 
 
 # Guys these are my keys, appreciate if you replaced with your own
@@ -62,42 +65,56 @@ def search(hashtag, tweets_text, tweets)
 	tweets_text << i
 	tweets_text << j
 
-
-	binding.pry
-
 	tweets_text.flatten!
 	
 end
 
+puts "Enter a search term"
+hashtag = gets.chomp
 
+search(hashtag, tweets_text, tweets)
 
- def show
-    Sentimental.load_defaults
-    Sentimental.threshold = 0.1
-    analyzer = Sentimental.new
-    query = params[:query]
+Sentimental.load_defaults
+analyzer = Sentimental.new
 
-   client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "ybFtYnXXu3jaMbWyX49xFnnFo"
-      config.consumer_secret     = "loN3PdBiG7CfnQ5FqVVALLnCTdS9jEmIR9ocN1tE9q6HSQvElt"
-      config.access_token        = "106548829-KXD9JL88mXnlxZ8snyDDMR33Vf0DNIoqxYoxAOYR"
-      config.access_token_secret = "Q4hqgExFMSmZ1rUzi6GM5fValninOQMeDUHY4su97Xe1G"
-   end
-    result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{query}&count=100" )
-    status_array = result[:statuses]
-
-    @tweets = []
-
-   @tweet_bodies = status_array.map do |status|
-      score = analyzer.get_score status[:text]
-      tweet = {
-        :text  =>  status[:text],
-        :score => score
-      }
-      @tweets<<tweet
-   end
-   scores = @tweets.map do |tweet|
-      tweet[:score]
-   end
-    @score = scores.inject(0.0){ |sum, el| sum + el } / scores.size
+# Here i'm creating an array of hashes, and within each hash, is it's text and score. This way I can perform descriptive statistics on the array of scores.
+@tweets = []
+tweets_text.each_with_index do |tweet, i|
+	score = analyzer.get_score(tweet)
+	text = tweet
+	index = i
+	tweet = {
+		:score => score,
+		:id => index,
+		:text => text
+		}	
+	@tweets << tweet
 end
+
+# Here I want to create an array of scores so I can get - mean, std deviation and variance. This should tell us, disagreement within the sample, mean(average sentiment)
+
+array_of_scores = []
+@tweets.each do |tweet|
+	array_of_scores << tweet[:score]
+end
+
+stats = DescriptiveStatistics::Stats.new(array_of_scores)
+
+
+
+
+# Think of doing the more stressful tasks in a seperate AJAX call
+{
+	query: hashtag,
+	score: aggregate_score,
+	kurtosis: hashtag_kurtosis,
+	relative_standard_deviation: hashtag_rsd,
+	skewness: hashtag_skew
+}
+
+
+
+
+
+
+

@@ -32,7 +32,7 @@ class SearchesController < ApplicationController
       tweet[:score]
     end
     @score = scores.inject(0.0){ |sum, el| sum + el } / scores.size
-    @score = (@score * 100).round(2)
+    @score = (@score * 100).round(2) + 100
   end
 end
 

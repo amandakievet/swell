@@ -14,15 +14,23 @@ input{
 
 .container {
 	@include outer-container;
+	height: 90vh;
 }
 
 .primary {
 	@include span-columns(8);
+	@include shift(2);
 }
 
-.secondary {
-	@include span-columns(4);
+
+/*NAV*/
+.logo-nav{
+	padding: 10px 0 100px 0;
+	height: 100px;
 }
+
+/*SEARCH BAR*/
+
 
 
 /*METER*/
@@ -41,7 +49,7 @@ input{
 #thermometer .track {
 	height: 50px;
 	border: 5px solid #fff;
-	top: 100px;
+	top: 20px;
 	width: 100%;
 	position: relative;
 	margin: 0 auto;

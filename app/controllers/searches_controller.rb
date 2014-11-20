@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
   def new
-
+    example_array = ["obamacare", "christmas", "The Graduate", "bunnies", "bacon", "puppies"]
+    @example = example_array.sample
   end
 
   def show
@@ -39,6 +40,7 @@ class SearchesController < ApplicationController
     end
     @score = scores.inject(0.0){ |sum, el| sum + el } / scores.size
     @score = (@score * 100).round(2) + 100
+
   end
 end
 

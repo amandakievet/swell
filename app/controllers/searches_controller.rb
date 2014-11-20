@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
 
   def show
     Sentimental.load_defaults
-    Sentimental.threshold = 0.9
+    Sentimental.threshold = 0.1
     analyzer = Sentimental.new
     query = params[:query]
 
@@ -15,7 +15,7 @@ class SearchesController < ApplicationController
       config.access_token        = "106548829-KXD9JL88mXnlxZ8snyDDMR33Vf0DNIoqxYoxAOYR"
       config.access_token_secret = "Q4hqgExFMSmZ1rUzi6GM5fValninOQMeDUHY4su97Xe1G"
     end
-    result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{query}&count=100&result_type=popular" )
+    result = client.get("https://api.twitter.com/1.1/search/tweets.json?q=%23#{query}&count=100" )
     status_array = result[:statuses]
 
     @tweets = []
@@ -28,8 +28,13 @@ class SearchesController < ApplicationController
       }
       @tweets<<tweet
     end
+    scores = @tweets.map do |tweet|
+      tweet[:score]
+    end
+    @score = scores.inject(0.0){ |sum, el| sum + el } / scores.size
   end
 end
+
 
 
 

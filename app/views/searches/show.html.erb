@@ -1,6 +1,8 @@
 <h1>Here are your search results</h1>
 <ul>
 	<% @tweets.each do |tweet|%>
-	<li><%= tweet[:text] %> <strong><%= tweet[:score] %></strong></li>
+	<li><% tweet[:text] %> <strong><%tweet[:score] %></strong></li>
 	<% end %>
 </ul>
+
+<%=@score%>

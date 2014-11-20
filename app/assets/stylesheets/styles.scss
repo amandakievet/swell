@@ -1,6 +1,5 @@
 /*BASE STYLES*/
 body{
-	background-color: $primarycolor;
 	font-family: $sans-serif;
 }
 
@@ -58,7 +57,7 @@ input{
 #thermometer .progress {
 	height: 100%;
 	width: 0%;
-	background: $accentcolor;
+	background: $swell-pink;
 	position: absolute;
 	top: 0;
 	left: 0;

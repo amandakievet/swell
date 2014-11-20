@@ -13,7 +13,6 @@ class SearchesController < ApplicationController
     tagged = @query.gsub!(/#/, "\%23")
     spaced = @query.gsub!(/ /, "\%20")
 
-
     consumer_key = ENV['CONSUMERKEY']
     consumer_secret = ENV['CONSUMERSECRET']
     access_token = ENV['ACCESSTOKEN']

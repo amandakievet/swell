@@ -1,4 +1,8 @@
 <h1>Here are your search results</h1>
+<div id="meter-container">
+	<div it="meter"></div>
+</div>
+
 <ul>
 	<% @tweets.each do |tweet|%>
 	<li><%= tweet[:text] %> <strong><%= tweet[:score] %></strong></li>

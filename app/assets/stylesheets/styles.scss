@@ -1,4 +1,4 @@
-
+/*BASE STYLES*/
 body{
 	background-color: $primarycolor;
 	font-family: $sans-serif;
@@ -24,3 +24,14 @@ input{
 	@include span-columns(4);
 }
 
+
+/*METER*/
+
+#meter-container {
+	@include span-columns(6);
+	height: 30px;
+	background-color: #ffffff;
+}
+#meter {
+	background-color: $accentcolor;
+}

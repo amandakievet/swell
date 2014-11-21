@@ -122,42 +122,6 @@ class ApiSearcher
     @stats.median
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  # def get_status_array
-  #   result = self.make_request
-  #   self.re_sub!
-  #   status_array = result[:statuses]
-  #   @tweets = []
-  #   @tweet_bodies = status_array.map do |status|
-  #     score = @analyzer.get_score status[:text]
-  #     tweet = {
-  #       :text  =>  status[:text],
-  #       :score => score
-  #     }
-  #     @tweets<<tweet
-  #   end
-  # end
-
-  # def calculate_sentiment_score
-  #   scores = @tweets.map do |tweet|
-  #     tweet[:score]
-  #   end
-  #   @score = scores.inject(0.0){ |sum, el| sum + el } / scores.size
-  #   @score = (@score * 100).round(2) + 100
-  # end
-
   def process_request
     self.load_dictionary
     self.sub!
@@ -194,7 +158,7 @@ class ApiSearcher
     @tagging_sorted = @tagging_hash.sort{ |a, b| b[1] <=> a[1]}
   end
 
-  def return_top_three_tags_key
+  def return_top_three_tags
     self.text_tagging
     self.sort_text_tagging_hash
     @first_tag = @tagging_sorted[0][0]

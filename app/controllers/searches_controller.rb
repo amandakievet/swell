@@ -9,7 +9,11 @@ class SearchesController < ApplicationController
     searcher = ApiSearcher.new(params[:query])
     @query = searcher.query
     hash = searcher.process_request
-    @score = hash[:mean]
+    related_query = searcher.return_top_three_tags
+    @score = hash[:median]
+    @related1 = related_query[:first]
+    @related2 = related_query[:second]
+    @related3 = related_query[:third]
   end
 end
 

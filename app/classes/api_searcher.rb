@@ -43,14 +43,14 @@ class ApiSearcher
   end
 
   def get_tweet_array
-    self.re_sub!
     @tweets_collection = []
     result = self.make_request
     i = 0
-    while i < 2
+    while i < 1
       @tweets_collection << @client.get("https://api.twitter.com/1.1/search/tweets.json?q=#{@query}&count=100#{result[:search_metadata][:next_results]}")
       i += 1
     end
+    self.re_sub!
   end
 
   def get_text_array
@@ -169,6 +169,10 @@ class ApiSearcher
       :second => @second_tag,
       :third => @third_tag
     }
+  end
+
+  def manipulate_score(score)
+    (score * 100) + 100
   end
 
 

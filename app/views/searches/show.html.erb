@@ -10,10 +10,13 @@
 			<div class="progress">
 				<div class="amount"> <%= @score %> </div>
 			</div>
+			<div class="sd">
+				<div class="amount"> <%= @sd %> </div>
+			</div>
 		</div>
 	</div>
 	<div id="triangle"></div>
-	<div data-width="<%= @sd %>"></div>
+	
 </div>
 <div id="related-words">
 	<ul>
@@ -25,8 +28,8 @@
 
 
 <script>
-	$(document).ready(function(){
-		thermometer();
-	});
+$(document).ready(function(){
+	thermometer();
+});
 </script>
 

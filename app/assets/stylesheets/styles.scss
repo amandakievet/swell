@@ -72,6 +72,15 @@ input[type="text"]{
 	left: 0;
 }
 
+#thermometer .sd {
+	height: 30%;
+	width: 0%;
+	background: $swell-dk-blue;
+	position: absolute;
+	top: 20px;
+	left: 0;
+}
+
 #thermometer .goal {
 	position: absolute;
 	right: 0;
@@ -81,7 +90,8 @@ input[type="text"]{
 	display: inline-block;
 }
 
-#thermometer .progress .amount {
+#thermometer .progress .amount,
+#thermometer .sd .amount {
 	position: absolute;
 	right: 0;
 }

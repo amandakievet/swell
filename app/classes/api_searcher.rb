@@ -175,5 +175,7 @@ class ApiSearcher
     (score * 100) + 100
   end
 
-
+  def manipulate_sd(sd)
+    (sd * 100) * 2
+  end
 end

@@ -1,4 +1,4 @@
-function thermometer(goalAmount, progressAmount, animate) {
+function thermometer(goalAmount, progressAmount, sdAmount, animate) {
 	"use strict";
 
 	var $thermo = $("#thermometer"),

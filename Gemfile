@@ -43,5 +43,7 @@ gem 'pry'
 gem 'bourbon'
 gem 'neat'
 gem 'sentimental'
+gem 'indico'
+gem 'descriptive-statistics'
 
 

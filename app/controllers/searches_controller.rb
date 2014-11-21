@@ -8,7 +8,8 @@ class SearchesController < ApplicationController
   def show
     searcher = ApiSearcher.new(params[:query])
     @query = searcher.query
-    @score = searcher.process_request
+    hash = searcher.process_request
+    @score = hash[:mean]
   end
 end
 

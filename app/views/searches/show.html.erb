@@ -19,11 +19,9 @@
 	
 </div>
 <div id="wordcloud">
-	<span data-weight="14">word</span>
-	<span data-weight="5">another</span>
-	<span data-weight="7">things</span>
-	<span data-weight="23">super</span>
-	<span data-weight="10">cloud</span>
+	<% @words.each do |word| %>
+	<span data-weight="<%= word[1][1] %>"><%= word[1][0]%></span>
+	<% end %>
 </div>
 
 
@@ -31,11 +29,17 @@
 $(document).ready(function(){
 	var settings = {
 		"size" : {
-			"grid" : 16
+			"grid" : 8,
+			"factor": 5,
+			"normalize": true
 		},
 		"options" : {
-			"color" : "random-dark",
+			"color" : "gradient",
 			"printMultiplier" : 3
+		},
+		"color" : {
+			"start" : "#fff",
+			"end" : "#fff"
 		},
 		"font" : "Futura, Helvetica, sans-serif",
 		"shape" : "square"

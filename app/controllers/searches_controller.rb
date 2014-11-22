@@ -11,7 +11,7 @@ class SearchesController < ApplicationController
     stats_hash = searcher.process_request
     @score = searcher.manipulate_score(stats_hash[:mean])
     @sd = searcher.manipulate_sd(stats_hash[:sd])
-    binding.pry
+    @words = stats_hash[:top_words]
   end
 end
 

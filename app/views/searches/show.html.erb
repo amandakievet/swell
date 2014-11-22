@@ -5,13 +5,13 @@
 	<div id="thermometer">
 		<div class="track">
 			<div class="goal">
-				<div class="amount">200</div>
+				<div class="amount" data-amount="200"></div>
 			</div>
 			<div class="progress">
-				<div class="amount"> <%= @score %> </div>
+				<div class="amount" data-amount="<%= @score %>"></div>
 			</div>
 			<div class="sd">
-				<div class="amount"> <%= @sd %> </div>
+				<div class="amount" data-amount ="<%= @sd %>"></div>
 			</div>
 		</div>
 	</div>

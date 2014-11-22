@@ -10,9 +10,9 @@ function thermometer(goalAmount, progressAmount, sdAmount, animate) {
 			sdMarginRight,
 			sdPercentageAmount;
 
-	goalAmount = goalAmount || parseFloat($goal.text());
-	progressAmount = progressAmount || parseFloat($progress.text());
-	sdAmount = sdAmount || parseFloat($sd.text());
+	goalAmount = goalAmount || parseFloat($goal.find(".amount").data("amount"));
+	progressAmount = progressAmount || parseFloat($progress.find(".amount").data("amount"));
+	sdAmount = sdAmount || parseFloat($sd.find(".amount").data("amount"));
 
 	percentageAmount = Math.min( Math.round(progressAmount / goalAmount * 1000)/10, 100);
 
@@ -21,9 +21,9 @@ function thermometer(goalAmount, progressAmount, sdAmount, animate) {
 	sdMarginLeft = percentageAmount - ( 0.5 * sdPercentageAmount );
 	sdMarginRight = ( 100 - percentageAmount ) - ( 0.5 * sdPercentageAmount );
 
-	$goal.find(".amount").text(goalAmount);
-	$progress.find(".amount").text(progressAmount);
-	$sd.find(".amount").text(sdAmount);
+	$goal.find(".amount").data("amount");
+	$progress.find(".amount").data("amount");
+	$sd.find(".amount").data("amount");
 
 	$sd.css("margin", "0 " + sdMarginRight + "% 0 " + sdMarginLeft + "%");
 

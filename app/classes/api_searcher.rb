@@ -139,7 +139,7 @@ class ApiSearcher
       :sd => self.statistic_standard_deviation,
       :kurtosis => self.statistic_kurtosis,
       :skewness => self.statistic_skewness,
-      :top_words => self.return_top_twenty_words,
+      :top_words => self.return_top_ten_words,
       :word_total => self.return_top_words_values,
       :percents => self.calculate_percentages
     }
@@ -170,7 +170,7 @@ class ApiSearcher
     @tags_hash = {
       :first => @first_tag,
       :second => @second_tag,
-      :third => @third_tag
+      :third_tagd => @third_tag
     }
   end
 
@@ -187,7 +187,7 @@ class ApiSearcher
       @word_counter_hash = @array_split.each_with_object(Hash.new(0)){ |word,counts| counts[word] +=1}
   end
 
-  def return_top_twenty_words
+  def return_top_ten_words
       self.tweets_array_constructor
       self.construct_array_of_text
       self.text_counter_hash
@@ -216,14 +216,14 @@ class ApiSearcher
       }
   end
   def return_top_words_values
-    self.return_top_twenty_words
+    self.return_top_ten_words
     @word_values_array = @word_count_hash.values.map do |word, number|
       number
     end
     @total_count = @word_values_array.inject{|sum,x| sum + x }
   end
   def calculate_percentages
-    self.return_top_twenty_words
+    self.return_top_ten_words
     self.return_top_words_values
     @percents = @word_values_array.map do |word|
       (word / @total_count.to_f * 100).round(3)

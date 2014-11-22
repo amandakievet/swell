@@ -11,10 +11,7 @@ class SearchesController < ApplicationController
     stats_hash = searcher.process_request
     @score = searcher.manipulate_score(stats_hash[:mean])
     @sd = searcher.manipulate_sd(stats_hash[:sd])
-    related_query = searcher.return_top_three_tags
-    @related1 = related_query[:first]
-    @related2 = related_query[:second]
-    @related3 = related_query[:third]
+    binding.pry
   end
 end
 

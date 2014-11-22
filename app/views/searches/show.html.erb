@@ -18,17 +18,31 @@
 	<div id="triangle"></div>
 	
 </div>
-<div id="related-words">
-	<ul>
-		<li><%= @related1 %></li>
-		<li><%= @related2 %></li>
-		<li><%= @related3 %></li>
-	</ul>
+<div id="wordcloud">
+	<span data-weight="14">word</span>
+	<span data-weight="5">another</span>
+	<span data-weight="7">things</span>
+	<span data-weight="23">super</span>
+	<span data-weight="10">cloud</span>
 </div>
 
 
 <script>
 $(document).ready(function(){
+	var settings = {
+		"size" : {
+			"grid" : 16
+		},
+		"options" : {
+			"color" : "random-dark",
+			"printMultiplier" : 3
+		},
+		"font" : "Futura, Helvetica, sans-serif",
+		"shape" : "square"
+	}
+
+	$( "#wordcloud" ).awesomeCloud( settings );
+
 	thermometer();
 });
 </script>

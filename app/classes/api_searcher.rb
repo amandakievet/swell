@@ -131,14 +131,17 @@ class ApiSearcher
     self.tweets_array_constructor
     self.construct_array_of_scores
     self.desc_statistics_init
-    @results_hash = {
+    {
       :mean => self.statistic_mean,
       :median => self.statistic_median,
       :mode => self.statistic_mode,
       :rsd => self.statistic_relative_standard_deviation,
       :sd => self.statistic_standard_deviation,
       :kurtosis => self.statistic_kurtosis,
-      :skewness => self.statistic_skewness
+      :skewness => self.statistic_skewness,
+      :top_words => self.return_top_twenty_words,
+      :word_total => self.return_top_words_values,
+      :percents => self.calculate_percentages
     }
   end
 
@@ -178,4 +181,54 @@ class ApiSearcher
   def manipulate_sd(sd)
     (sd * 100) * 2
   end
+
+  def text_counter_hash
+      @array_split = @array_of_text.join.split(" ")
+      @word_counter_hash = @array_split.each_with_object(Hash.new(0)){ |word,counts| counts[word] +=1}
+  end
+
+  def return_top_twenty_words
+      self.tweets_array_constructor
+      self.construct_array_of_text
+      self.text_counter_hash
+      @word_counter_sorted = @word_counter_hash.sort{|a,b| b[1] <=> a[1]}
+      @first_word = @word_counter_sorted[0]
+      @second_word = @word_counter_sorted[1]
+      @third_word = @word_counter_sorted[2]
+      @fourth_word = @word_counter_sorted[3]
+      @fifth_word = @word_counter_sorted[4]
+      @sixth_word = @word_counter_sorted[5]
+      @seventh_word = @word_counter_sorted[6]
+      @eigth_word = @word_counter_sorted[7]
+      @ninth_word = @word_counter_sorted[8]
+      @tenth_word = @word_counter_sorted[9]
+      @word_count_hash = {
+        :first => @first_word,
+        :second => @second_word,
+        :third => @third_word,
+        :fourth => @fourth_word,
+        :fifth => @fifth_word,
+        :sixth => @sixth_word,
+        :seventh => @seventh_word,
+        :eigth => @eigth_word,
+        :ninth => @ninth_word,
+        :tenth => @tenth_word,
+      }
+  end
+  def return_top_words_values
+    self.return_top_twenty_words
+    @word_values_array = @word_count_hash.values.map do |word, number|
+      number
+    end
+    @total_count = @word_values_array.inject{|sum,x| sum + x }
+  end
+  def calculate_percentages
+    self.return_top_twenty_words
+    self.return_top_words_values
+    @percents = @word_values_array.map do |word|
+      (word / @total_count.to_f * 100).round(3)
+    end
+  end
+
 end
+

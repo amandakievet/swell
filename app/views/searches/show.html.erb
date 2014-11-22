@@ -1,4 +1,4 @@
-
+<section>
 <div id="content">
 	<h6>Here are your search results for:</h6> 
 	<h4><%= @query%></h4>
@@ -15,15 +15,19 @@
 			</div>
 		</div>
 	</div>
-	<div id="triangle"></div>
-	
+	<div id="triangle"></div>	
 </div>
+<div class="arrow animated bounce">
+</div>
+</section>
+
+<section>
 <div id="wordcloud">
 	<% @words.each do |word| %>
 	<span data-weight="<%= word[1][1] %>"><%= word[1][0]%></span>
 	<% end %>
 </div>
-
+</section>
 
 <script>
 $(document).ready(function(){
@@ -41,7 +45,7 @@ $(document).ready(function(){
 			"start" : "#fff",
 			"end" : "#fff"
 		},
-		"font" : "Futura, Helvetica, sans-serif",
+		"font" : "'Montserrat', sans-serif",
 		"shape" : "square"
 	}
 

@@ -90,11 +90,14 @@ input[type="text"]{
 	display: inline-block;
 }
 
-#thermometer .progress .amount,
-#thermometer .sd .amount {
+#thermometer .progress .amount{
 	position: absolute;
 	right: 0;
 }
+
+#thermometer .sd .amount{
+	position: relative;
+} 
 
 #triangle {
 	width: 0;

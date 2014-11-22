@@ -25,9 +25,6 @@ function thermometer(goalAmount, progressAmount, sdAmount, animate) {
 	$progress.find(".amount").text(progressAmount);
 	$sd.find(".amount").text(sdAmount);
 
-	console.log(sdMarginRight);
-	console.log(sdMarginLeft);
-
 	$sd.css("margin", "0 " + sdMarginRight + "% 0 " + sdMarginLeft + "%");
 
 

@@ -12,6 +12,9 @@ class SearchesController < ApplicationController
     @score = searcher.manipulate_score(stats_hash[:mean])
     @sd = searcher.manipulate_sd(stats_hash[:sd])
     @words = stats_hash[:top_words]
+    @convo1 = stats_hash[:convos][:first]
+    @convo2 = stats_hash[:convos][:second]
+    @convo3 = stats_hash[:convos][:third]
   end
 end
 

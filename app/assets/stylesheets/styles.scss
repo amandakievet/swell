@@ -3,6 +3,14 @@ body{
 	font-family: $sans-serif;
 }
 
+section{
+	height: 100vh;
+}
+
+.first {
+	height: 80vh;
+}
+
 h1,h2,h3,h4,h5,h6{
 	font-family: $sans-serif;
 }
@@ -13,7 +21,6 @@ input{
 
 .container {
 	@include outer-container;
-	height: 90vh;
 }
 
 .primary {
@@ -21,9 +28,7 @@ input{
 	@include shift(2);
 }
 
-section{
-	height: 90vh;
-}
+
 
 
 /*NAV*/
@@ -106,12 +111,17 @@ input[type="text"]{
 #triangle {
 	width: 0;
 	height: 0;
-	margin: 0 auto;
+	margin: 5px auto 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 20px solid $swell-pink;
 }
 
+
+#conversation{
+	text-align: center;
+	margin-top: 30px;
+}
 
 /*SCROLL ARROWS*/
 @include keyframes(bounce) {
@@ -148,6 +158,8 @@ input[type="text"]{
 /*WORDCLOUD*/
 
 #wordcloud {
+	@include span-columns(8);
+	@include shift(2);
 	height: 90vh;
 }
 

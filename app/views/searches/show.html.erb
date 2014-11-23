@@ -1,4 +1,4 @@
-<section>
+<section class="first">
 <div id="content">
 	<h6>Here are your search results for:</h6> 
 	<h4><%= @query%></h4>
@@ -15,13 +15,20 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="triangle"></div>	
+
+	<div id="conversation">
+		<h6>The conversation is taking in place in these categories: </h6>
+		<h4><%= @convo1 %>, <%= @convo2 %>, <%= @convo3 %></h4>
+	</div>
+
 </div>
 <div class="arrow animated bounce">
 </div>
 </section>
 
-<section>
+<section class="wordcloud">
 <div id="wordcloud">
 	<% @words.each do |word| %>
 	<span data-weight="<%= word[1][1] %>"><%= word[1][0]%></span>

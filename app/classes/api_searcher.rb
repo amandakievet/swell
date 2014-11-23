@@ -141,18 +141,13 @@ class ApiSearcher
       :skewness => self.statistic_skewness,
       :top_words => self.return_top_ten_words,
       :word_total => self.return_top_words_values,
-      :percents => self.calculate_percentages
+      :percents => self.calculate_percentages,
+      :convos => self.return_top_three_tags
     }
   end
 
 
   def text_tagging
-    self.load_dictionary
-    self.sub!
-    self.configure_twitter_client
-    self.get_tweet_array
-    self.get_text_array
-    self.tweets_array_constructor
     @status_array = self.construct_array_of_text
     @tagging_hash = Indico.text_tags(@status_array)
   end
@@ -170,7 +165,7 @@ class ApiSearcher
     @tags_hash = {
       :first => @first_tag,
       :second => @second_tag,
-      :third_tagd => @third_tag
+      :third => @third_tag
     }
   end
 

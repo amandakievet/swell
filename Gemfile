@@ -47,3 +47,4 @@ gem 'indico'
 gem 'descriptive-statistics'
 
 
+gem 'words_counted'

@@ -188,7 +188,7 @@ class ApiSearcher
       @array_split.each do |x|
         exclude = false
         @exclusions.each do |y|
-          if x == y || x == @query || x == @query.downcase || x == @query.capitalize || x == @query.upcase
+          if x == y || x == @query || x == @query.downcase || x == @query.capitalize || x == @query.upcase || x == "#" + @query || x == @query + "'s" || x == @query + "," || x == @query + ":"
             exclude = true
             @removed << x
           end

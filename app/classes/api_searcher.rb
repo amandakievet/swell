@@ -190,7 +190,7 @@ class ApiSearcher
       @array_split.each do |x|
         exclude = false
         @exclusions.each do |y|
-          if x == y
+          if x == y || x == @query
             exclude = true
             @removed << x
           end

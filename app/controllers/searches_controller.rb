@@ -15,6 +15,9 @@ require 'csv'
     @convo1 = stats_hash[:convos][:first]
     @convo2 = stats_hash[:convos][:second]
     @convo3 = stats_hash[:convos][:third]
+    @most_influential_icon = stats_hash[:most_influential].first[:profile_photo]
+    @most_influential_user = stats_hash[:most_influential].first[:user_name]
+    @most_influential_tweet = stats_hash[:most_influential].first[:text]
   end
 end
 

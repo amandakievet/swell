@@ -179,14 +179,12 @@ class ApiSearcher
   end
 
   def text_counter_hash
-    @trolls = CSV.read("app/assets/exclusions.csv")
-    @turds = @trolls.map do |troll|
-                troll[0]
-              end
+    @excluded_as_arrays = CSV.read("app/assets/exclusions.csv")
+    @excluded_as_one_array = @excluded_as_arrays.map { |word| word[0] }
       @array_split = @array_of_text.join.split(" ")
       @results = []
       @removed = []
-      @exclusions = @turds.each { |turd| turd }
+      @exclusions = @excluded_as_one_array.each { |word| word }
       @array_split.each do |x|
         exclude = false
         @exclusions.each do |y|

@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-
+require 'csv'
   def new
     example_array = ["obamacare", "christmas", "The Graduate", "bunnies", "bacon", "puppies"]
     @example = example_array.sample

@@ -75,7 +75,28 @@ class ApiSearcher
       @tweets_text_array << tweet
     end
   end
-
+  def get_retweets_tweet_array
+      @retweets_array = []
+      @tweets_collection.map do |tweet_hash|
+        tweet_hash[:statuses].map {|status|
+          retweets_hash = {
+            :text => status[:text],
+            :created_at => status[:created_at],
+            :retweets => status[:retweet_count],
+            :user_name => status[:user][:name],
+            :twitter_page => "https://twitter.com/#{status[:user][:screen_name]}",
+            :followers_count => status[:user][:followers_count],
+            :profile_photo => status[:user][:profile_image_url],
+            :score => @analyzer.get_score(status[:text]),
+            :influence_score => (((status[:retweet_count] * 5) * status[:user][:followers_count])/1000)
+            }
+      @retweets_array << retweets_hash}
+      end
+      @influence_sorted = @retweets_array.sort_by {|hash| -hash[:influence_score]}
+   end
+  def process_most_influential_users
+    @most_influential = @influence_sorted.reject{|tweet| tweet[:text].include?("RT ")}.uniq{|tweet| tweet[:username]}
+  end
   def construct_array_of_scores
     @array_of_scores = []
     @tweets_text_array.each do |tweet|
@@ -129,6 +150,7 @@ class ApiSearcher
     self.configure_twitter_client
     self.get_tweet_array
     self.get_text_array
+    self.get_retweets_tweet_array
     self.tweets_array_constructor
     self.construct_array_of_scores
     self.desc_statistics_init
@@ -143,7 +165,8 @@ class ApiSearcher
       :top_words => self.return_top_ten_words,
       :word_total => self.return_top_words_values,
       :percents => self.calculate_percentages,
-      :convos => self.return_top_three_tags
+      :convos => self.return_top_three_tags,
+      :most_influential => self.process_most_influential_users
     }
   end
 

@@ -23,10 +23,9 @@ $(document).ready(function(){
 
 	thermometer();
 
-	$('#search-bar').keydown(function(e){
-		if(e.keyCode == 13){
-			makeAPIRequest();
-		}
+	$('#search-bar').submit(function(e){
+		e.preventDefault();
+		makeAPIRequest();
 	});
 
 });

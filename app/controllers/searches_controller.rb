@@ -6,9 +6,8 @@ class SearchesController < ApplicationController
   end
 
   def show
-
-    searcher = ApiSearcher.new(params[:query])
-    @query = searcher.query
+    @query = params[:query]
+    searcher = ApiSearcher.new(@query)
     stats_hash = searcher.process_request
     @score = searcher.manipulate_score(stats_hash[:mean])
     @sd = searcher.manipulate_sd(stats_hash[:sd])
@@ -16,7 +15,6 @@ class SearchesController < ApplicationController
     @convo1 = stats_hash[:convos][:first]
     @convo2 = stats_hash[:convos][:second]
     @convo3 = stats_hash[:convos][:third]
-
     respond_to do |format|
       format.html
       format.json { render :json => {

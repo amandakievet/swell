@@ -1,8 +1,13 @@
 function makeAPIRequest(){
 	$.ajax({
+		method: 'GET',
 		url: '/searches/show',
-		type: 'GET',
+		dataType: 'JSON',
 		data: {query: $('#query').val()},
-		success: console.log(data)
+		success: processApiData
 	});
+
+	function processApiData(data){
+		console.log(data);
+	};
 }

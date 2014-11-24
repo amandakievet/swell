@@ -1,8 +1,34 @@
-<div class="primary">
-	<h6>Search Twitter for Word(s) or Hashtag</h6>
-<form action="/searches/show" method="get">
-	<%= token_tag %>
-	<input type="text" name="query" placeholder="<%= @example %>">
-	<input type="submit">
-</form>
-</div>
+
+<script>
+$(document).ready(function(){
+	var settings = {
+		"size" : {
+			"grid" : 8,
+			"factor": 5,
+			"normalize": true
+		},
+		"options" : {
+			"color" : "gradient",
+			"printMultiplier" : 3
+		},
+		"color" : {
+			"start" : "#fff",
+			"end" : "#fff"
+		},
+		"font" : "'Montserrat', sans-serif",
+		"shape" : "square"
+	}
+
+	$( "#wordcloud" ).awesomeCloud( settings );
+
+	thermometer();
+
+	$('#search-bar').keydown(function(e){
+		if(e.keyCode == 13){
+			makeAPIRequest();
+		}
+	});
+
+});
+</script>
+

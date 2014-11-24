@@ -1,3 +1,4 @@
+
 <section class="first">
 <div id="content">
 	<h6>Here are your search results for:</h6> 
@@ -35,14 +36,6 @@
 	<% end %>
 </div>
 </section>
-	<div class="primary">
-	<h6>Search For Something Else</h6>
-<form action="/searches/show" method="get">
-	<%= token_tag %>
-	<input type="text" name="query" placeholder="<%= @example %>">
-	<input type="submit">
-</form>
-</div>
 
 <script>
 $(document).ready(function(){

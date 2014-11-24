@@ -87,8 +87,7 @@ class ApiSearcher
     @tweets_text_array.each do |tweet|
       @array_of_text << tweet[:text]
     end
-    @excluder = WordsCounted.count(@array_of_text.join, exclude:["the", "i", "and", "my", "has", "that", "why", "have", "you", "it", "on", "to", "was", "get", "an", "a", "for", "of"])
-    @excluder.words
+    @array_of_text.join
   end
 
   def desc_statistics_init
@@ -150,7 +149,7 @@ class ApiSearcher
 
   def text_tagging
     @status_array = self.construct_array_of_text
-    @tagging_hash = Indico.text_tags(@status_array.join)
+    @tagging_hash = Indico.text_tags(@status_array)
   end
 
   def sort_text_tagging_hash
@@ -179,8 +178,23 @@ class ApiSearcher
   end
 
   def text_counter_hash
-      @array_split = @excluder.words
-      @word_counter_hash = @array_split.each_with_object(Hash.new(0)){ |word,counts| counts[word] +=1}
+      @array_split = @array_of_text.join.split(" ")
+      @results = []
+      @removed = []
+      @exclusions = ["the", "i", "and", "my", "has", "that", "why", "have", "you", "it", "on", "to", "was", "get", "an", "a", "for", "of", "their", "in", "they", "so"]
+      @array_split.each do |x|
+        exclude = false
+        @exclusions.each do |y|
+          if x == y
+            exclude = true
+            @removed << x
+          end
+        end
+        if !exclude
+          @results << x
+        end
+      end
+      @word_counter_hash = @results.each_with_object(Hash.new(0)){ |word,counts| counts[word] +=1}
   end
 
   def return_top_ten_words

@@ -38,8 +38,8 @@ class ApiSearcher
   end
 
   def re_sub!
-    @query.sub!(/%23/, "\#")
-    @query.sub!(/%20/, "\ ")
+    @query.gsub!(/%23/, "\#")
+    @query.gsub!(/%20/, "\ ")
   end
 
   def get_tweet_array

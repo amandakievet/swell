@@ -16,11 +16,12 @@ function makeAPIRequest(){
 		var convo2 = data.convo2;
 		var convo3 = data.convo3;
 		var words = data.words;
-		renderThermometer(score, sd);
+		renderThermometer(score, sd, convo1, convo2, convo3);
 	};
 
-	function renderThermometer(score, sd){
+	function renderThermometer(score, sd, c1, c2, c3){
 		var $section = $('.thermometer');
+		$section.empty();
 		var $contentDiv = $("<div>", {id: "content"});
 		var $thermDiv = $("<div>", {id: "thermometer"});
 		var $trackDiv = $("<div>", {class: "track"});
@@ -45,5 +46,14 @@ function makeAPIRequest(){
 
 		$section.append($contentDiv);
 		thermometer(200, score, sd, true);
+
+		var $middleMarker = $("<div>", {id: "triangle"});
+		$contentDiv.append($middleMarker);
+
+		var $convoDiv = $("<div>", {id: "conversation"});
+		var $convoText = $("<h6>The conversation is taking place in these categories:</h6><h4>" + c1 + ", " + c2 + ", " + c3 + "</h4>");
+		$convoDiv.append($convoText);
+
+		$contentDiv.append($convoDiv);
 	};
 }

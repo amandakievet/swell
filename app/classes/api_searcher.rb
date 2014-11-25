@@ -47,7 +47,7 @@ class ApiSearcher
     @tweets_collection = []
     result = self.make_request
     i = 0
-    while i < 1
+    while i < 3
       @tweets_collection << @client.get("https://api.twitter.com/1.1/search/tweets.json?q=#{@query}&count=100#{result[:search_metadata][:next_results]}")
       i += 1
     end

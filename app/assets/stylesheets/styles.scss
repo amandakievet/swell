@@ -198,15 +198,24 @@ input[type="text"]{
 	display: inline;
 }
 
-#mean-key{
+
+
+#mean-key,
+#sd-key{
 	background-color: $swell-pink;
 	width: 25px;
 	height: 25px;
+	color: white;
+	padding: 5px;
+	display: inline;
 }
+
+#mean-key{
+	background-color: $swell-pink;
+}
+
 #sd-key{
 	background-color: $swell-dk-blue;
-	width: 25px;
-	height: 25px;
 }
 
 

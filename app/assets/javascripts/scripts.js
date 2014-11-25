@@ -32,7 +32,11 @@ function makeAPIRequest(){
 			username: username,
 			tweet: tweet
 		};
-		$('#content-placeholder').html(template(data));
+		var html = $('#content-placeholder').html(template(data));
+		$(html).find(".stats-info a").on("click", function(e){
+			$(this).next().slideToggle();
+		});
+
 
 		thermometer(200, score, sd, true);
 		buildCloud();

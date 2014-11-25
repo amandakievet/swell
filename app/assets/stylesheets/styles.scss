@@ -9,6 +9,7 @@ section{
 
 .thermometer {
 	height: 80vh;
+	min-height: 600px;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -169,6 +170,7 @@ input[type="text"]{
 	@include span-columns(8);
 	@include shift(2);
 	height: 90vh;
+	min-height: 600px;
 }
 
 

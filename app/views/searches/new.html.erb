@@ -1,4 +1,5 @@
 <div id="content-placeholder"></div>
+
 <script id="info-graphs" type="text/x-handlebars-template">
 	<section class="thermometer">
 	<div id="content">
@@ -37,6 +38,16 @@
 	<div class="arrow animated bounce">
 	</div>
 </section>
+
+
+<section id="influential">
+	<div id="influential-div">
+	<img src="{{user_thumb}}" alt="User Thumbnail">
+	<h4>{{username}}:</h4>
+	<h1>{{tweet}}</h1>
+	</div>
+</section>
+
 <section class="wordcloud">
 	<div id="wordcloud">
 		{{#each words}}
@@ -44,6 +55,8 @@
 		{{/each}}
 	</div>
 </section>
+
+
 </script>
 
 <script>

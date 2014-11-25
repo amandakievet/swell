@@ -16,6 +16,9 @@ function makeAPIRequest(){
 		var convo2 = data.convo2;
 		var convo3 = data.convo3;
 		var words = data.words;
+		var userThumb = data.user_thumb;
+		var username = data.username;
+		var tweet = data.tweet;
 
 		var source = $("#info-graphs").html();
 		var template = Handlebars.compile(source);
@@ -24,7 +27,10 @@ function makeAPIRequest(){
 			convo1: convo1,
 			convo2: convo2,
 			convo3: convo3,
-			words: words
+			words: words,
+			user_thumb: userThumb,
+			username: username,
+			tweet: tweet
 		};
 		$('#content-placeholder').html(template(data));
 
@@ -55,6 +61,8 @@ function makeAPIRequest(){
 	};
 
 }
+
+
 
 
 

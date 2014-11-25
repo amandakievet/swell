@@ -163,6 +163,21 @@ input[type="text"]{
 }
 
 
+/*MOST INFLUENTIAL*/
+#influential{
+	@include span-columns(8);
+	@include shift(3);
+	height: 90vh;
+	min-height: 600px;
+	padding-top: 200px;
+}
+
+#influential-div > img{
+	text-align: center;
+	border-radius: 50%;
+}
+
+
 
 /*WORDCLOUD*/
 

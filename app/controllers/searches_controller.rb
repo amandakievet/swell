@@ -29,7 +29,10 @@ require 'csv'
         words: @words,
         convo1: @convo1,
         convo2: @convo2,
-        convo3: @convo3
+        convo3: @convo3,
+        user_thumb: @most_influential_icon,
+        username: @most_influential_user,
+        tweet: @most_influential_tweet
         }}
     end
 

@@ -1,8 +1,14 @@
-<div class="primary">
-	<h6>Search Twitter for Word(s) or Hashtag</h6>
-<form action="/searches/show" method="get">
-	<%= token_tag %>
-	<input type="text" name="query" placeholder="<%= @example %>">
-	<input type="submit">
-</form>
-</div>
+<section class="thermometer"></section>
+<section class="wordcloud"></section>
+
+<script>
+$(document).ready(function(){
+	
+	$('#search-bar').submit(function(e){
+		e.preventDefault();
+		makeAPIRequest();
+	});
+
+});
+</script>
+

@@ -1,5 +1,14 @@
-<a href="<%= root_path %>">
 <div class="logo-nav">
 	<h1>swell</h1>
 </div>
-</a>
+<div id="search-bar">
+<form action="/searches/show" method="get">
+	<%= token_tag %>
+	<input type="text" id="query" placeholder="<%= @example %>">
+	<input type="submit">
+</form>
+</div>
+
+
+
+

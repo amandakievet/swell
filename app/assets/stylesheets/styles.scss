@@ -7,7 +7,7 @@ section{
 	height: 100vh;
 }
 
-.first {
+.thermometer {
 	height: 80vh;
 }
 
@@ -33,11 +33,18 @@ input{
 
 /*NAV*/
 .logo-nav{
+	@include span-columns(3);
 	padding: 25px 0;
 	height: 150px;
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	color: white;
+}
+
+#search-bar{
+	@include omega();
+	@include span-columns(8);
+	padding: 25px 0;
 }
 
 /*SEARCH BAR*/

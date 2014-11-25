@@ -250,6 +250,7 @@ class ApiSearcher
         :ninth => @ninth_word,
         :tenth => @tenth_word,
       }
+      @word_count_array = [@first_word, @second_word, @third_word, @fourth_word, @fifth_word, @sixth_word, @seventh_word, @eigth_word, @ninth_word, @tenth_word]
   end
   def return_top_words_values
     self.return_top_ten_words

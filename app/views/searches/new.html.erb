@@ -1,5 +1,42 @@
-<section class="thermometer"></section>
-<section class="wordcloud"></section>
+<div id="content-placeholder"></div>
+<script id="info-graphs" type="text/x-handlebars-template">
+	<section class="thermometer">
+	<div id="content">
+		<h6>Here are your search results for:</h6> 
+		<h4>{{query}}</h4>
+		<div id="thermometer">
+			<div class="track">
+				<div class="goal">
+					<div class="amount"></div>
+				</div>
+				<div class="progress">
+					<div class="amount"></div>
+				</div>
+				<div class="sd">
+					<div class="amount"</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="triangle"></div>	
+
+		<div id="conversation">
+			<h6>The conversation is taking in place in these categories: </h6>
+			<h4>{{convo1}}, {{convo2}}, {{convo3}}</h4>
+		</div>
+
+	</div>
+	<div class="arrow animated bounce">
+	</div>
+</section>
+<section class="wordcloud">
+	<div id="wordcloud">
+		{{#each words}}
+		<span data-weight={{this.[1]}}>{{this.[0]}}</span>
+		{{/each}}
+	</div>
+</section>
+</script>
 
 <script>
 $(document).ready(function(){
@@ -11,4 +48,3 @@ $(document).ready(function(){
 
 });
 </script>
-

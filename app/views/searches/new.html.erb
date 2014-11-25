@@ -20,7 +20,6 @@
 
 		<div id="triangle"></div>	
 		
-		<a href="#" id="toggle-stats">Stats</a>
 		<div class="stats-info">
 			<p>
 			Standard deviation is our proxy for gauging diversity in opinion within our sample. By telling us the observed deviance of sentiment from mean sentiment. 
@@ -55,11 +54,9 @@ $(document).ready(function(){
 		makeAPIRequest();
 	});
 
-	$("#toggle-stats").click(function(){
-		$(".stats-info").slideDown("slow", function(){
-
-		});
-	})
+	$("#toggle-stats").live('click', function(){
+		$(".stats-info").show();
+	});
 
 });
 </script>

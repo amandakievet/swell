@@ -190,8 +190,23 @@ input[type="text"]{
 
 
 /*DROP DOWN*/
-div.stats-info{
-	margin-top: 30px;
+.stats-info > p{
+	display: none;
+}
+
+.stats-info > li{
+	display: inline;
+}
+
+#mean-key{
+	background-color: $swell-pink;
+	width: 25px;
+	height: 25px;
+}
+#sd-key{
+	background-color: $swell-dk-blue;
+	width: 25px;
+	height: 25px;
 }
 
 

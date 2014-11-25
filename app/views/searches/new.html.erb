@@ -19,6 +19,15 @@
 		</div>
 
 		<div id="triangle"></div>	
+		
+		<a href="#" id="toggle-stats">Stats</a>
+		<div class="stats-info">
+			<p>
+			Standard deviation is our proxy for gauging diversity in opinion within our sample. By telling us the observed deviance of sentiment from mean sentiment. 
+			The tagging helps us understand the context in which the conversation surrounding our chosen subject is being had in.
+			</p>
+		</div>
+	
 
 		<div id="conversation">
 			<h6>The conversation is taking in place in these categories: </h6>
@@ -45,6 +54,12 @@ $(document).ready(function(){
 		e.preventDefault();
 		makeAPIRequest();
 	});
+
+	$("#toggle-stats").click(function(){
+		$(".stats-info").slideDown("slow", function(){
+
+		});
+	})
 
 });
 </script>

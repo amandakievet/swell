@@ -43,7 +43,8 @@ input{
 
 #search-bar{
 	@include omega();
-	@include span-columns(8);
+	@include span-columns(5);
+	@include shift(3);
 	padding: 25px 0;
 }
 
@@ -127,7 +128,7 @@ input[type="text"]{
 
 #conversation{
 	text-align: center;
-	margin-top: 200px;
+	margin-top: 100px;
 }
 
 /*SCROLL ARROWS*/
@@ -171,6 +172,16 @@ input[type="text"]{
 }
 
 
+/*DROP DOWN*/
+div.show{
+	background-color: $swell-dk-blue;
+	color: white;
+	margin-top: 10px;
+}
+
+div.hide{
+	display: none;
+}
 
 
 

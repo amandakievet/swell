@@ -17,6 +17,7 @@ function makeAPIRequest(){
 		var convo3 = data.convo3;
 		var words = data.words;
 		renderThermometer(score, sd, convo1, convo2, convo3);
+		renderWordCloud(words);
 	};
 
 	function renderThermometer(score, sd, c1, c2, c3){
@@ -55,5 +56,55 @@ function makeAPIRequest(){
 		$convoDiv.append($convoText);
 
 		$contentDiv.append($convoDiv);
+
+		var $arrowDiv = $("<div>", {class: "arrow animated bounce"});
+		$contentDiv.append($arrowDiv);
 	};
+
+	function renderWordCloud(words){
+		var $wordCloudSection = $(".wordcloud");
+		$wordCloudSection.empty();
+		var $wordCloudDiv = $("<div>", {id: "wordcloud"});
+		$(words).each(function(idx,word){
+			var $wordSpan = $("<span>" + word[0] + "</span>");
+			$wordSpan.attr("data-weight", word[1]);
+			$wordCloudDiv.append($wordSpan);
+		});
+		$wordCloudSection.append($wordCloudDiv);
+
+		buildCloud();
+	};
+
+	function buildCloud(){
+		var settings = {
+		"size" : {
+			"grid" : 8,
+			"factor": 5,
+			"normalize": true
+		},
+		"options" : {
+			"color" : "gradient",
+			"printMultiplier" : 3
+		},
+		"color" : {
+			"start" : "#fff",
+			"end" : "#fff"
+		},
+		"font" : "'Montserrat', sans-serif",
+		"shape" : "square"
+		};
+
+		$("#wordcloud").awesomeCloud(settings);
+	};
+
 }
+
+
+
+
+
+
+
+
+
+

@@ -3,26 +3,7 @@
 
 <script>
 $(document).ready(function(){
-	var settings = {
-		"size" : {
-			"grid" : 8,
-			"factor": 5,
-			"normalize": true
-		},
-		"options" : {
-			"color" : "gradient",
-			"printMultiplier" : 3
-		},
-		"color" : {
-			"start" : "#fff",
-			"end" : "#fff"
-		},
-		"font" : "'Montserrat', sans-serif",
-		"shape" : "square"
-	}
-
-	$( "#wordcloud" ).awesomeCloud( settings );
-
+	
 	$('#search-bar').submit(function(e){
 		e.preventDefault();
 		makeAPIRequest();

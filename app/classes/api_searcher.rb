@@ -1,16 +1,17 @@
+# This is a model. It should be in the models directory.
+
 class ApiSearcher
-  # require 'csv'
-  # require 'twitter'
-  # require 'sentimental'
-  # require 'indico'
-  # require 'descriptive-statistics'
-  # attr_accessor :tweets_collection, :tweets_status, :results_hash, :tagging_hash, :largest_tag, :return_top_three_tags_keys, :tagging_sorted, :tags_hash, :array_of_scores
+
+  # I'm deleting a whole bunch of commented-out stuff
+  # Because Version Control is there to retrieve it
+  # And because it makes MY comments harder to read otherwise.
+
+  # Oh yeah and commenting out API keys still leaves them in source control
+  # You should delete those and create new ones.
   def initialize(query)
-    @query = query
+    @query = query # Arguably, this
     @consumer_key = ENV['CONSUMERKEY']
     @consumer_secret = ENV['CONSUMERSECRET']
-    # @consumer_key = "ybFtYnXXu3jaMbWyX49xFnnFo"
-    # @consumer_secret = "loN3PdBiG7CfnQ5FqVVALLnCTdS9jEmIR9ocN1tE9q6HSQvElt"
   end
 
   def load_dictionary

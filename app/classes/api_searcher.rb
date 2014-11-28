@@ -233,6 +233,12 @@ class ApiSearcher
   def text_counter_hash
     # Reading a file? This almost guarantees that this method should be in
     # another object
+
+    # In addition, the exclusions file itself shouldn't be where it is. It's
+    # not "an asset". The way to use this would either be to:
+    # 1. load it in memory in a global variable in an initializer
+    # http://guides.rubyonrails.org/configuring.html#using-initializer-files
+    # 2. put in a database table
     @excluded_as_arrays = CSV.read("app/assets/exclusions.csv")
     @excluded_as_one_array = @excluded_as_arrays.map { |word| word[0] }
     @array_split = @array_of_text.join.split(" ")

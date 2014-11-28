@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// The jquery.awesomeCloud plugin should be in vendor/assets/javascripts
+// Because it's vendor code (third-party, not code you wrote)
+// And same for handlebars
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks

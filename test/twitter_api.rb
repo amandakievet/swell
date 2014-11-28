@@ -1,3 +1,12 @@
+=begin
+I don't know what this file is, but it does not belong in this directory.
+This directory is solely for test files - files containing tests that verify
+the main logic of the application.
+
+This looks like a command-line script, so it might belong in the bin directory
+or it might belong as a rake task?
+=end
+
 require 'twitter'
 require 'sentimental'
 require 'indico'
@@ -66,7 +75,7 @@ def search(hashtag, tweets_text, tweets)
 	tweets_text << j
 
 	tweets_text.flatten!
-	
+
 end
 
 puts "Enter a search term"
@@ -87,7 +96,7 @@ tweets_text.each_with_index do |tweet, i|
 		:score => score,
 		:id => index,
 		:text => text
-		}	
+		}
 	@tweets << tweet
 end
 

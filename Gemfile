@@ -48,3 +48,5 @@ gem 'descriptive-statistics'
 
 
 gem 'words_counted'
+
+gem 'rails_12factor'

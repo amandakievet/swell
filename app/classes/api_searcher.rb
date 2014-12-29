@@ -1,16 +1,9 @@
 class ApiSearcher
-  # require 'csv'
-  # require 'twitter'
-  # require 'sentimental'
-  # require 'indico'
-  # require 'descriptive-statistics'
-  # attr_accessor :tweets_collection, :tweets_status, :results_hash, :tagging_hash, :largest_tag, :return_top_three_tags_keys, :tagging_sorted, :tags_hash, :array_of_scores
+
   def initialize(query)
     @query = query
     @consumer_key = ENV['CONSUMERKEY']
     @consumer_secret = ENV['CONSUMERSECRET']
-    # @consumer_key = "ybFtYnXXu3jaMbWyX49xFnnFo"
-    # @consumer_secret = "loN3PdBiG7CfnQ5FqVVALLnCTdS9jEmIR9ocN1tE9q6HSQvElt"
   end
 
   def load_dictionary
